@@ -23,26 +23,14 @@ mongoose.connect(process.env.DATABASEURL,{
 })	.then(() => console.log('Connected to DB!'))
 	.catch(error => console.log(error.message));
 
-// mongoose.connect('mongodb+srv://ashtest:Ashley123!@cluster0.8zbl2.mongodb.net/yelp_camp?retryWrites=true&w=majority',{
-// 	useNewUrlParser:true,
-// 	useCreateIndex:true
-// }).then(()=> {
-// 	console.log(("connected to db..."))
-// }).catch(err=> {
-// 	console.log("ERROR: ",err.message);
-// });
-
-
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs")
 app.use(express.static(__dirname+"/public"))
 app.use(methodOverride("_method"));
 app.use(flash());
-
 //seedDB();
 
 //PASSPORRT config
-
 app.use(require("express-session")({
 	secret: "Once again, Rusty wins the cutest dog!",
 	resave:false,
