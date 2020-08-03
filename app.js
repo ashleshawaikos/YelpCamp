@@ -14,21 +14,23 @@ var express=require("express"),
 var commentRoutes=require("./routes/comments");
 var campgroundRoutes=require("./routes/campgrounds");
 var indexRoutes=require("./routes/index");
+// console.log(process.env.DATABASEURL);
 
-//mongooseconnection
-// mongoose.connect("mongodb://localhost:27017/yelp_camp",{
-// 	useNewUrlParser: true,
-// 	useUnifiedTopology: true
-// })	.then(() => console.log('Connected to DB!'))
-// 	.catch(error => console.log(error.message));
-mongoose.connect('mongodb+srv://ashtest:Ashley123!@cluster0.8zbl2.mongodb.net/<dbname>?retryWrites=true&w=majority',{
-	useNewUrlParser:true,
-	useCreateIndex:true
-}).then(()=> {
-	console.log(("connected to db..."))
-}).catch(err=> {
-	console.log("ERROR: ",err.message);
-});
+// mongooseconnection
+mongoose.connect(process.env.DATABASEURL,{
+	useNewUrlParser: true,
+	useUnifiedTopology: true
+})	.then(() => console.log('Connected to DB!'))
+	.catch(error => console.log(error.message));
+
+// mongoose.connect('mongodb+srv://ashtest:Ashley123!@cluster0.8zbl2.mongodb.net/yelp_camp?retryWrites=true&w=majority',{
+// 	useNewUrlParser:true,
+// 	useCreateIndex:true
+// }).then(()=> {
+// 	console.log(("connected to db..."))
+// }).catch(err=> {
+// 	console.log("ERROR: ",err.message);
+// });
 
 
 app.use(bodyParser.urlencoded({extended: true}));
