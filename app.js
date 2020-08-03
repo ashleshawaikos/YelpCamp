@@ -16,11 +16,20 @@ var campgroundRoutes=require("./routes/campgrounds");
 var indexRoutes=require("./routes/index");
 
 //mongooseconnection
-mongoose.connect("mongodb://localhost:27017/yelp_camp",{
-	useNewUrlParser: true,
-	useUnifiedTopology: true
-})	.then(() => console.log('Connected to DB!'))
-	.catch(error => console.log(error.message));
+// mongoose.connect("mongodb://localhost:27017/yelp_camp",{
+// 	useNewUrlParser: true,
+// 	useUnifiedTopology: true
+// })	.then(() => console.log('Connected to DB!'))
+// 	.catch(error => console.log(error.message));
+mongoose.connect('mongodb+srv://ashtest:Ashley123!@cluster0.8zbl2.mongodb.net/<dbname>?retryWrites=true&w=majority',{
+	useNewUrlParser:true,
+	useCreateIndex:true
+}).then(()=> {
+	console.log(("connected to db..."))
+}).catch(err=> {
+	console.log("ERROR: ",err.message);
+});
+
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs")
