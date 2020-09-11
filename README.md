@@ -1,3 +1,3 @@
 # YelpCamp
 
-//Hosted on https://github.com/ashleshawaikos/YelpCamp
+//Hosted on https://lit-tundra-78855.herokuapp.com/campgrounds
